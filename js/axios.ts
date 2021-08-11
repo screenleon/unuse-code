@@ -1,21 +1,9 @@
-import { Worker } from 'worker_threads';
-import * as dotenv from "dotenv";
-import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
-import { IDevice } from "./tester";
 const path = require("path");
 const qs = require("qs");
 const FormData = require("form-data");
-import * as fs from "fs";
 
 dotenv.config({ path: __dirname + '/../../.env' });;
-
-
-/** @ts-ignore */
-const userArguments = process.argv.slice(2);
-for (let index = 0; index < userArguments.length; index += 2) {
-    parseProcessArgument(userArguments[index], index + 1 < userArguments.length ? userArguments[index + 1] : 0);
-}
 
 // Save parse cookie
 let cookies = "";
